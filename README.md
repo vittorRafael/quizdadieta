@@ -43,4 +43,5 @@ Node.js e Typescript
  - `docker rm <nomedocontainer>`: Apaga o container especificado;
  - `docker stop <nomedocontainer>`: Para o container;
  - `docker compose up -d`: Cria um container de acordo com o docker-compose.yml;
- - `npx prisma studio`: Abre no navegador uma interface para visualizar o banco de dados; 
+ - `npx prisma studio`: Abre no navegador uma interface para visualizar o banco de dados;
+ - `npx prisma migrate dev`: Para rodar as atualizações no banco de dados;
