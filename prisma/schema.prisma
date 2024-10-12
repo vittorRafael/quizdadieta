@@ -13,8 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model QuizResposta {
+  id               Int    @id @default(autoincrement())
+  email            String @unique
+  nome             String
+  genero           String
+  idade_faixa      String
+  objetivo_fitness String
+  me_Identifico    String
+  objetivo_corpo   String
+  me_incomoda      String
+  me_sentir_bem    String
+  atividade_fisica String
+  altura           String
+  peso_atual       String
+  peso_objetivo    String
+  idade            String
+  me_sinto         String
+
+  created_at DateTime @default(now())
+
+  @@map("quiz_respostas")
 }

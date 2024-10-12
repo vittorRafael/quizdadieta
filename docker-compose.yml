@@ -1,11 +1,12 @@
 version: '3'
 
 services:
-  example-pg:
-    image: bitnami/postgresql
+  quizdadieta:
+    image: bitnami/postgresql:latest
+    container_name: quizdadieta
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      - POSTGRESQL_USERNANE=docker
+      - POSTGRESQL_USERNAME=docker
       - POSTGRESQL_PASSWORD=docker
-      - POSTGRESQL_DATABASE=example
+      - POSTGRESQL_DATABASE=quizbd
