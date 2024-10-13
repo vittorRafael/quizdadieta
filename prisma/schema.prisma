@@ -14,21 +14,21 @@ datasource db {
 }
 
 model QuizResposta {
-  id               Int    @id @default(autoincrement())
-  email            String @unique
+  id               String  @id @default(uuid())
+  email            String  @unique
   nome             String
   genero           String
   idade_faixa      String
   objetivo_fitness String
-  me_Identifico    String
+  me_identifico    String
   objetivo_corpo   String
   me_incomoda      String
   me_sentir_bem    String
   atividade_fisica String
-  altura           String
-  peso_atual       String
-  peso_objetivo    String
-  idade            String
+  altura           Int
+  peso_atual       Decimal
+  peso_objetivo    Decimal
+  idade            Int
   me_sinto         String
 
   created_at DateTime @default(now())
