@@ -15,7 +15,7 @@ datasource db {
 
 model QuizResposta {
   id               String  @id @default(uuid())
-  email            String  @unique
+  email            String
   nome             String
   genero           String
   idade_faixa      String
