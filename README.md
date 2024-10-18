@@ -126,9 +126,8 @@ const registerBodySchema = z.object({
 
 **Exemplo de Resposta**:
 
-```json
+```
 statuscode = 201
-{}
 ```
 
 ## Executando a Aplicação
