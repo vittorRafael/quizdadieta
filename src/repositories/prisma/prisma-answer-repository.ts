@@ -9,4 +9,12 @@ export class PrismaAnswerRepository implements AnswerRepository {
     });
     return answer;
   }
+
+  async findById(id: string) {
+    const answer = await prisma.quizResposta.findUnique({
+      where: { id },
+    });
+
+    return answer;
+  }
 }

@@ -30,4 +30,11 @@ export class InMemoryAnswerRepository implements AnswerRepository {
 
     return answer;
   }
+
+  async findById(id: string) {
+    const answer = this.items.find((item) => item.id === id);
+    if (!answer) return null;
+
+    return answer;
+  }
 }
