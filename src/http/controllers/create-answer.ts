@@ -54,7 +54,7 @@ export const createAnswer = async (
 
   try {
     const registerServices = makeCreateAnswerServices();
-    await registerServices.execute({
+    const res = await registerServices.execute({
       email,
       nome,
       genero,
@@ -71,9 +71,8 @@ export const createAnswer = async (
       idade,
       me_sinto,
     });
+    return reply.status(201).send({ id_answer: res.answer.id });
   } catch (error) {
     throw error;
   }
-
-  return reply.status(201).send();
 };
