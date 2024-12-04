@@ -31,7 +31,6 @@ Esta aplicação é uma API para registrar respostas a um questionário de fitne
 4. Crie um arquivo `.env` para configurar as variáveis de ambiente necessárias:
    ```env
    DATABASE_URL="postgresql://user:password@localhost:5432/quizbd"
-   JWT_SECRET="sua_chave_secreta"
    ```
 
 ## Estrutura do Banco de Dados
