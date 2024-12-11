@@ -1,10 +1,18 @@
 import fastify from "fastify";
+import fastifyCors from "@fastify/cors";
 import { ZodError } from "zod";
 import { env } from "./env";
 import { answerRoutes } from "./http/routes";
 import { ResourceNotFoundError } from "./services/errors/resource-not-found-error";
 
 export const app = fastify();
+
+app.register(fastifyCors, {
+  origin: "*", // Permite todas as origens. Você pode configurar para permitir origens específicas.
+  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"], // Cabeçalhos permitidos
+  credentials: true, // Habilitar cookies e credenciais
+});
 
 app.register(answerRoutes);
 
