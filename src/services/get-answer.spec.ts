@@ -22,7 +22,7 @@ describe("Get Answer Use Case", () => {
       objetivo_fitness: "Emagrecer",
       me_identifico: "Gordinho",
       objetivo_corpo: "Normal",
-      me_incomoda: "Barriga",
+      me_incomoda: ["Barriga"],
       me_sentir_bem: "Há mais de 3 anos",
       atividade_fisica: "Não faço",
       altura: 175,

@@ -10,11 +10,19 @@ export const createAnswer = async (
     email: z.string().email(),
     nome: z.string(),
     genero: z.enum(["Homem", "Mulher"]),
-    idade_faixa: z.enum(["18-24", "35-34", "35-44", "45+"]),
+    idade_faixa: z.enum(["18-24", "25-34", "35-44", "45+"]),
     objetivo_fitness: z.enum(["Emagrecer", "Manter o peso", "Ganhar peso"]),
-    me_identifico: z.enum(["Magro", "Normal", "Gordinho", "Obeso"]),
-    objetivo_corpo: z.enum(["Magro", "Normal", "Gordinho", "Obeso"]),
-    me_incomoda: z.enum(["Perna", "Barriga", "Culote", "Braços", "Nada"]),
+    me_identifico: z.enum(["1-12", "13-15", "16-19", "20-24", "25-30"]),
+    objetivo_corpo: z.enum([
+      "Musculoso e Forte",
+      "Definido e Atlético",
+      "Tonificante e Proporcional",
+      "Natural e Ativo",
+      "Robusto e Equilibrado",
+    ]),
+    me_incomoda: z.array(
+      z.enum(["Corpo todo", "Braços", "Bunda", "Pernas", "Barriga", "Costas"])
+    ),
     me_sentir_bem: z.enum([
       "Há mais de 3 anos",
       "Há 1-3 anos",
@@ -71,6 +79,7 @@ export const createAnswer = async (
       idade,
       me_sinto,
     });
+
     return reply.status(201).send({ id_answer: res.answer.id });
   } catch (error) {
     throw error;

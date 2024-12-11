@@ -9,7 +9,7 @@ interface CreateAnswerServicesRequest {
   objetivo_fitness: string;
   me_identifico: string;
   objetivo_corpo: string;
-  me_incomoda: string;
+  me_incomoda: string[];
   me_sentir_bem: string;
   atividade_fisica: string;
   altura: number;

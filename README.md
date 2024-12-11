@@ -47,7 +47,7 @@ model QuizResposta {
   objetivo_fitness String
   me_identifico    String
   objetivo_corpo   String
-  me_incomoda      String
+  me_incomoda      String[]
   me_sentir_bem    String
   atividade_fisica String
   altura           Int
@@ -72,9 +72,17 @@ const registerBodySchema = z.object({
   genero: z.enum(["Homem", "Mulher"]),
   idade_faixa: z.enum(["18-24", "25-34", "35-44", "45+"]),
   objetivo_fitness: z.enum(["Emagrecer", "Manter o peso", "Ganhar peso"]),
-  me_identifico: z.enum(["Magro", "Normal", "Gordinho", "Obeso"]),
-  objetivo_corpo: z.enum(["Magro", "Normal", "Gordinho", "Obeso"]),
-  me_incomoda: z.enum(["Perna", "Barriga", "Culote", "Braços", "Nada"]),
+  me_identifico: z.enum(["1-12", "13-15", "16-19", "20-24", "25-30"]),
+  objetivo_corpo: z.enum([
+    "Musculoso e Forte",
+    "Definido e Atlético",
+    "Tonificante e Proporcional",
+    "Natural e Ativo",
+    "Robusto e Equilibrado",
+  ]),
+  me_incomoda: z.array(
+    z.enum(["Corpo todo", "Braços", "Bunda", "Pernas", "Barriga", "Costas"])
+  ),
   me_sentir_bem: z.enum([
     "Há mais de 3 anos",
     "Há 1-3 anos",
@@ -127,6 +135,42 @@ const registerBodySchema = z.object({
 
 ```
 statuscode = 201
+```
+
+### POST `/get-answer/:id`
+
+**Descrição**: Endpoint para obter uma resposta no questionário.
+
+**Parâmetro passado na rota**:
+
+```
+id: Id da resposta que é mostrada quando criada!
+```
+
+**Exemplo de Resposta**:
+
+```json
+{
+  "answer": {
+    "id": "answer-01",
+    "email": "teste@example.com",
+    "nome": "Teste",
+    "genero": "Homem",
+    "idade_faixa": "18-24",
+    "objetivo_fitness": "Emagrecer",
+    "me_identifico": "16-19",
+    "objetivo_corpo": "Tonificante e Proporcional",
+    "me_incomoda": ["Barriga"],
+    "me_sentir_bem": "Há mais de 3 anos",
+    "atividade_fisica": "Não faço",
+    "altura": 175,
+    "peso_atual": "80",
+    "peso_objetivo": "70",
+    "idade": 22,
+    "me_sinto": "Motivado(a)",
+    "created_at": "2024-12-11T16:03:08.661Z"
+  }
+}
 ```
 
 ## Executando a Aplicação

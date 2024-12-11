@@ -6,6 +6,14 @@ export class InMemoryAnswerRepository implements AnswerRepository {
   public items: QuizResposta[] = [];
 
   async create(data: Prisma.QuizRespostaCreateInput) {
+    const input = {
+      me_incomoda: undefined, // ou qualquer dado vindo de outra fonte
+    };
+
+    const meIncomodaNormalized: string[] = Array.isArray(input.me_incomoda)
+      ? input.me_incomoda
+      : [];
+
     const answer = {
       id: data.id || randomUUID(),
       email: data.email,
@@ -15,7 +23,7 @@ export class InMemoryAnswerRepository implements AnswerRepository {
       objetivo_fitness: data.objetivo_fitness,
       me_identifico: data.me_identifico,
       objetivo_corpo: data.objetivo_corpo,
-      me_incomoda: data.me_incomoda,
+      me_incomoda: meIncomodaNormalized,
       me_sentir_bem: data.me_sentir_bem,
       atividade_fisica: data.atividade_fisica,
       altura: data.altura,
