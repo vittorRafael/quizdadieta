@@ -137,7 +137,7 @@ const registerBodySchema = z.object({
 statuscode = 201
 ```
 
-### POST `/get-answer/:id`
+### GET `/get-answer/:id`
 
 **Descrição**: Endpoint para obter uma resposta no questionário.
 
